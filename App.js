@@ -1,9 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import StartGameScreen from './screens/StartGameScreen';
 
 export default function App() {
-  return <StartGameScreen />
+  return (
+    <View style={styles.rootScreen}>
+      <ImageBackground source={require('./assets/images/background.png')} resizeMode="cover" style={styles.rootScreen} >
+        <StartGameScreen />
+      </ImageBackground>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -13,4 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  rootScreen: {
+    flex: 1,
+  }
 });
